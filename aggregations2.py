@@ -7,6 +7,8 @@ st.title("YouTube Analytics")
 # Google Drive link to the CSV file (Make sure this is a direct downloadable link)
 file_url = "https://drive.google.com/uc?export=download&id=1QlD4uL9uvNfWIMl9n8uZSHHtHArco3jk"
 
+# Rest of your code...
+
 try:
     # Load the data with error handling
     videos = pd.read_csv(
