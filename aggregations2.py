@@ -6,7 +6,7 @@ import requests
 st.title("YouTube Analytics")
 
 # Google Drive link to the CSV file
-file_url = "https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-globalnav-goto
+file_url = "https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-globalnav-goto"
 
 # Load the data
 try:
