@@ -16,6 +16,7 @@ try:
         engine="python"       # Use Python engine for flexibility
     )
     st.write("Preview of loaded data:", videos.head())
+    st.write("Columns in the dataset:", videos.columns)  # Debugging line to show columns
 except Exception as e:
     st.error(f"Error loading the CSV: {e}")
     videos = None
@@ -23,15 +24,20 @@ except Exception as e:
 # Proceed only if data is loaded successfully
 if videos is not None:
     try:
-        # Perform analytics
-        view_stats = videos["views"].mean()
-        st.write("Average views:", view_stats)
-    except KeyError:
-        st.error("Required column 'views' is missing.")
+        # Check if 'views' column exists
+        if "views" not in videos.columns:
+            st.error("'views' column is missing from the dataset.")
+        else:
+            # Perform analytics if 'views' column exists
+            view_stats = videos["views"].mean()
+            st.write("Average views:", view_stats)
     except Exception as e:
         st.error(f"An error occurred during analytics: {e}")
 else:
     st.write("No data available to perform analytics.")
+
+# Add additional analytics and visualizations as needed
+
 
 # Add additional analytics and visualizations as needed
 
