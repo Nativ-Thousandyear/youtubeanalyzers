@@ -1,12 +1,29 @@
 import streamlit as st
 import pandas as pd
+import requests
 
 # Streamlit app title
 st.title("YouTube Analytics")
 
 # Google Drive link to the CSV file
-file_url = "https://drive.google.com/uc?id=YOUR_FILE_ID&export=download"
+file_url = "https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-globalnav-goto
 
+# Load the data
+try:
+    videos = pd.read_csv(file_url)
+    st.write(videos.head())  # Display first few rows
+except Exception as e:
+    st.error(f"Error loading the CSV: {e}")
+    videos = None
+
+# Proceed only if videos is successfully loaded
+if videos is not None:
+    # Analytics functions and display logic
+    view_stats = calculate_view_statistics(videos)
+    st.subheader("View Statistics")
+    st.write(view_stats)
+else:
+    st.error("No data available to perform analytics.")
 
 # Aggregation functions updated to use pandas DataFrame
 def calculate_view_statistics(videos):
