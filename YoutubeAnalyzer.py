@@ -1,4 +1,21 @@
- [
+ import streamlit as st
+import pandas as pd
+import requests
+
+# Streamlit code setup
+st.title("YouTube Analytics")
+
+# Load the data
+file_url = "https://github.com/Nativ-Thousandyear/youtubeanalyzers/blob/main/YoutubeAnalyzer.csv"
+try:
+    videos = pd.read_csv(file_url)
+    st.write(videos.head())  # Display first few rows
+except Exception as e:
+    st.error(f"Error loading the CSV: {e}")
+
+# Further Streamlit processing and UI components go here
+
+[
   {
     "{": "" ""cells"": [""
   },
