@@ -1,9 +1,12 @@
 import streamlit as st
 import pandas as pd
 
-# Load CSV file (adjust path if necessary)
-file_path = "https://github.com/Nativ-Thousandyear/youtubeanalyzers/blob/main/YoutubeAnalyzer.csv"
-videos = pd.read_csv(file_path)
+# Streamlit app title
+st.title("YouTube Analytics")
+
+# Google Drive link to the CSV file
+file_url = "https://drive.google.com/uc?id=YOUR_FILE_ID&export=download"
+
 
 # Aggregation functions updated to use pandas DataFrame
 def calculate_view_statistics(videos):
