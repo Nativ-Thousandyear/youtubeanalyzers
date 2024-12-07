@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 
-# URL of the CSV file on GitHub (raw URL)
-file_url = "https://github.com/Nativ-Thousandyear/youtubeanalyzers/blob/main/YoutubeAnalyzer.csv"
-videos = pd.read_csv(file_url)
+# Load CSV file (adjust path if necessary)
+file_path = "https://github.com/Nativ-Thousandyear/youtubeanalyzers/blob/main/YoutubeAnalyzer.csv"
+videos = pd.read_csv(file_path)
 
-# Aggregation functions (same as before)
+# Aggregation functions updated to use pandas DataFrame
 def calculate_view_statistics(videos):
     avg_views = videos["views"].mean()
     max_views = videos["views"].max()
