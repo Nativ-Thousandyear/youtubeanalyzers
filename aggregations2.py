@@ -4,16 +4,16 @@ import pandas as pd
 # Streamlit app title
 st.title("YouTube Analytics")
 
-# Google Drive link to the CSV file (Please update this with the actual download link)
-file_url = "https://drive.google.com/file/d/1QlD4uL9uvNfWIMl9n8uZSHHtHArco3jk/view?usp=drive_link"
+# Google Drive link to the CSV file (Make sure this is a direct downloadable link)
+file_url = "https://drive.google.com/uc?export=download&id=1QlD4uL9uvNfWIMl9n8uZSHHtHArco3jk"
 
 try:
     # Load the data with error handling
     videos = pd.read_csv(
         file_url,
-        error_bad_lines=False,  # Skip problematic lines
-        delimiter=",",          # Explicitly specify delimiter
-        engine="python"         # Use Python engine for flexibility
+        on_bad_lines="skip",  # Skip problematic lines
+        delimiter=",",        # Explicitly specify delimiter
+        engine="python"       # Use Python engine for flexibility
     )
     st.write("Preview of loaded data:", videos.head())
 except Exception as e:
@@ -34,8 +34,6 @@ else:
     st.write("No data available to perform analytics.")
 
 # Add additional analytics and visualizations as needed
-
- 
 
 # Aggregation functions updated to use pandas DataFrame
 def calculate_view_statistics(videos):
